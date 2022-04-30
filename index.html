@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Art Museum</title>
+    <!--파비콘 설정-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!--브라우저 초기화 reset-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset@1.5.1/css/reset.min.css">
+
+    <!--구글 폰트 설정-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!--구글 material icon 설정-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- JQuery cdn -->
+    <script defer src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <!-- Swiper JS -->
+    <script defer src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!--lodash-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- gsap 애니메이션 제어/scroll/top -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 메인 CSS 연결 -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- 메인 JS 연결 -->
+    <script defer src="js/swiper.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <!-- HEADER - 상단 로고, 메뉴, 토글버튼, Search -->
+    <header>
+        <div class="wrap">
+            <h1>
+                <a href="index.html" class="m-logo"><img src="img/logo/M-logo.png" alt="My Art Museum"></a>
+                <a href="index.html" class="p-logo"><img src="img/logo/logo.png" alt="My Art Museum"></a>
+            </h1>
+
+            <!-- TAB & MO - 메뉴 -->
+            <nav class="gnb">
+                <div class="gnb-logo">
+                    <img src="img/logo/logo.png" alt="My Art Museum">
+                </div>
+                <ul>
+                    <li>
+                        <a href="#javascript:void(0)" class="main">MAMU<span class="underline"></span></a>
+                        <ul class="submenu">
+                            <li><a href="#javascript:void(0)">About us</a></li>
+                            <li><a href="#javascript:void(0)">Facilities</a></li>
+                            <li><a href="#javascript:void(0)">Host an Event</a></li>
+                            <li><a href="#javascript:void(0)">Getting Here</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#javascript:void(0)" class="main">Visit<span class="underline"></span></a>
+                        <ul class="submenu">
+                            <li><a href="#javascript:void(0)">Admission</a></li>
+                            <li><a href="#javascript:void(0)">Docents</a></li>
+                            <li><a href="#javascript:void(0)">Private Tours</a></li>
+                            <li><a href="#javascript:void(0)">Group<br>Reservations</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#javascript:void(0)" class="main">Exhibitions<span class="underline"></span></a>
+                        <ul class="submenu">
+                            <li><a href="#javascript:void(0)">Current</a></li>
+                            <li><a href="#javascript:void(0)">Upcoming</a></li>
+                            <li><a href="#javascript:void(0)">Past</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#javascript:void(0)" class="main">Programs<span class="underline"></span></a>
+                        <ul class="submenu">
+                            <li><a href="#javascript:void(0)">Education</a></li>
+                            <li><a href="#javascript:void(0)">Membership</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#javascript:void(0)" class="main">News<span class="underline"></span></a>
+                        <ul class="submenu">
+                            <li><a href="#javascript:void(0)">Notice</a></li>
+                            <li><a href="#javascript:void(0)">Event</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- PC - 메뉴 -->
+            <nav class="gnb-pc">
+                <ul>
+                    <li>
+                        <a href="#javascript:void(0)" class="main">MAMU<span class="underline"></span></a>
+                        <ul class="submenu">
+                            <li><a href="#javascript:void(0)">About us</a></li>
+                            <li><a href="#javascript:void(0)">Facilities</a></li>
+                            <li><a href="#javascript:void(0)">Host an Event</a></li>
+                            <li><a href="#javascript:void(0)">Getting Here</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#javascript:void(0)" class="main">Visit<span class="underline"></span></a>
+                        <ul class="submenu">
+                            <li><a href="#javascript:void(0)">Admission</a></li>
+                            <li><a href="#javascript:void(0)">Docents</a></li>
+                            <li><a href="#javascript:void(0)">Private Tours</a></li>
+                            <li><a href="#javascript:void(0)">Group<br>Reservations</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#javascript:void(0)" class="main">Exhibitions<span class="underline"></span></a>
+                        <ul class="submenu">
+                            <li><a href="#javascript:void(0)">Current</a></li>
+                            <li><a href="#javascript:void(0)">Upcoming</a></li>
+                            <li><a href="#javascript:void(0)">Past</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#javascript:void(0)" class="main">Programs<span class="underline"></span></a>
+                        <ul class="submenu">
+                            <li><a href="#javascript:void(0)">Education</a></li>
+                            <li><a href="#javascript:void(0)">Membership</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#javascript:void(0)" class="main">News<span class="underline"></span></a>
+                        <ul class="submenu">
+                            <li><a href="#javascript:void(0)">Notice</a></li>
+                            <li><a href="#javascript:void(0)">Event</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Search -->
+            <div class="search">
+                <div class="search-box">
+                    <input type="text" class="search-input">
+                    <span class="material-icons">
+                        search
+                    </span>
+                </div>
+            </div>
+
+            <!-- menu-toggle-btn -->
+            <div class="menu-toggle-btn">
+                <div id="one"></div>
+                <div id="two"></div>
+                <div id="three"></div>
+            </div>
+        </div>
+    </header>
+    <!-- PC- 서브메뉴 BG -->
+    <div class="gnb-bg"></div>
+
+    <!-- 호안 미로 영상 & fast-menu -->
+    <section class="vod visual">
+        <video src="img/Jhon-miro-vod.mp4" autoplay muted loop></video>
+        <div class="fast fade-in">
+            <div class="wrap">
+                <div class="time">
+                    <h3>관람시간</h3>
+                    <p>월 - 일요일 <span>10:00 - 20:00 (입장마감 19:00)</span></p>
+                    <p>※ 9월 10일 추석 당일 휴관 | 공휴일 정상개관</p>
+                </div>
+
+                <!-- fast-menu -->
+                <div class="fast-menu">
+                    <ul>
+                        <li>
+                            <a href="#javascript:void(0)">
+                                <img src="img/fast-icon/notice_icon01.png" alt="관람안내">
+                                <p>관람안내</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#javascript:void(0)">
+                                <img src="img/fast-icon/notice_icon02.png" alt="오시는 길">
+                                <p>오시는 길</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#javascript:void(0)">
+                                <img src="img/fast-icon/notice_icon03.png" alt="티켓구입">
+                                <p>티켓구입</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 현재 전시회 - 호안 미로 -->
+    <section class="current scroll-spy">
+        <div class="wrap">
+            <div class="cont1">
+                <div class="cont1-title back-to-position to-right delay-0">
+                    <img src="img/current/joan-miro-M.jpg" alt="호안미로 전시회" class="joan-miro-m">
+                    <div class="cont-info">
+                        <h2>
+                            <span>Upcoming Exhibition</span>
+                            호안 미로: 여인, 새, 별
+                            <span>Joan Miro : Women, Birds, Stars</span>
+                        </h2>
+                        <p>
+                            순수한 색과 시적이고 상징적인 기호의 독창적 화풍으로 20세기 가장 영향력 있는 예술가 중 한명으로 인정받는 거장의 &#60;호안 미로: 여인, 새, 별	
+                            &#62;
+                        </p>
+                    </div>
+                </div>
+                <div class="cont1-miro back-to-position to-left delay-0">
+                    <h3 class="miro-say back-to-position to-left delay-0">
+                        <span>" 예측할 수 없을수록 </span>
+                        <span>나는 더욱 흥미를 느낀다. "</span>
+                    </h3>
+                    <p class="back-to-position to-left delay-0">
+                        호안 미로 Joan miro (1893 - 1983)
+                    </p>
+                    <a class="go back-to-position to-left delay-1">
+                        <span>더 알아보기</span>
+                        <span class="material-icons">
+                            arrow_forward_ios
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 호안 미로 대표작 -->
+            <div class="works">
+                <ul>
+                    <li>
+                        <a href="#javascript:void(0)">
+                            <img src="img/current/Personnage-et-oiseaux.jpg" alt="사람과 새">
+                            <div class="work-info">
+                                <h4>기호의 언어</h4>
+                                <p>
+                                    사람과 새,<br> 
+                                    Figure and Bird
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#javascript:void(0)">
+                            <img src="img/current/Woman-and-birds.jpg" alt="풍경 속의 여인과 새들">
+                            <div class="work-info">
+                                <h4>해방된 기호</h4>
+                                <p>
+                                    풍경 속의 여인과 새들,<br>
+                                    Woman and Birds in a Landscape
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#javascript:void(0)">
+                            <img src="img/current/Escaping-girl.jpg" alt="탈출하는 소녀">
+                            <div class="work-info">
+                                <h4>오브제</h4>
+                                <p>
+                                    탈출하는 소녀,<br>
+                                    Girls Escaping
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#javascript:void(0)">
+                            <img src="img/current/Woman-and-birds1.jpg" alt="여인과 새1">
+                            <div class="work-info">
+                                <h4>검은 인물</h4>
+                                <p>
+                                    여인과 새&#8544;,<br>
+                                    Woman and Birds in a Landscape
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- education - 키즈아틀리에 프로그램 -->
+    <section class="education">
+        <div class="wrap">
+            <h2>
+                <img src="img/program/kids-program-logo.png" alt="키즈아틀리에">
+            </h2>
+            <p>
+                어린이를 대상으로 운영중인 교육 프로그램을 시작으로 성인에 이르기까지 <br>
+                앞으로 일상 속에서 손쉽게 문화예술을 즐길 수 있는 다양한 교육 프로그램을 운영예정입니다.
+            </p>
+            <a href="#javascipt:void(0)" class="btn">More</a>
+        </div>
+    </section>
+
+    <!-- 지난 전시회 -->
+    <section class="past scroll-spy">
+        <h2>Past Exhibitions</h2>
+        <div class="wrap back-to-position to-top delay-0">
+                <!-- Swiper -->
+    <div class="swiper pastSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="img/past/chagall.jpg" alt="Chagall and the Bible">
+                <div class="exhibition-info">
+                    <div class="title">
+                        <h3>Chagall and the Bible</h3>
+                        <p>샤갈 특별전: Chagall and the Bible</p>
+                    </div>
+                    <p>
+                        독창적인 소재와 화풍으로 미술사에 족적을 남긴 화가 샤갈의 회고전이자, 샤갈에게 가장 중요한 예술 창조의 원천이었던 '성서'를 주제로 &#60;샤갈 특별전, Chagall and the Bible&#62;을 2021년 11월 25일부터 22년 4월 10일까지 개최한다.
+                        그가 성서를 통해 전달하는 인류에 대한 사랑의 메시지를 온전히 감상하는 시간이 될 것이다.
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/past/dalton.jpg" alt="Alice Dalton Brown, Where the Light Breathes">
+                <div class="exhibition-info">
+                    <div class="title">
+                        <h3>Alice Dalton Brown, Where the Light Breathes</h3>
+                        <p>앨리스 달튼 브라운, 빛이 머무는 자리</p>
+                    </div>
+                    <p>
+                        앨리스 달튼 브라운은 뉴욕을 기반으로 한 리얼리즘 기법으로 그림을 그리는 화가로, 그녀의 작품은 유수의 기관이 소장하고 있으며 많은 국내 갤러리 및 컬렉터들에게도 사랑 받고 있다.
+                        마이아트뮤지엄은 ‘앨리스 달튼 브라운, 빛이 머무는 자리’ 전시를 2021년 7월 24일부터 11월 7일까지 개최한다. 
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/past/max.jpg" alt="Max Dalton Moments in Film">
+                <div class="exhibition-info">
+                    <div class="title">
+                        <h3>Max Dalton Moments in Film</h3>
+                        <p>맥스 달튼, 영화의 순간들</p>
+                    </div>
+                    <p>
+                        일러스트레이터 맥스 달튼의 국내 첫 단독전 &#60;맥스 달튼, 영화의 순간들&#62;은 맥스 달튼이 독창적 일러스트로 표현한 영화의 순간이라는 주제로 기획되었다.
+                        마이아트뮤지엄 커미션 신작으로 한국 영화 &#60;기생충&#62;과 판타지 대작 &#60;반지의 제왕&#62;의 포스터와 미공개 연작 여덟 점, 초안 드로잉 등을 최초로 선보인다.
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/past/matisse.jpg" alt="HENRI MATISSE">
+                <div class="exhibition-info">
+                    <div class="title">
+                        <p>Celebrating 150 Years of Henri Matisse</p>
+                        <h3>HENRI MATISSE</h3>
+                        <p>앙리 마티스 탄생 150주년 &#60;마티스 특별전 : 재즈와 연극&#62;</p>
+                    </div>
+                    <p>
+                        2020년 앙리 마티스의 탄생 150주년을 기념하여, 강렬한 색채의 ‘야수파’의 대표적 화가로 피카소와 함께 20세기 최고의 화가로 손꼽힌 앙리 마티스(1869 - 1954)의 국내 최초 단독전을 2020년 10월 31일부터 2021년 4월 4일까지 개최한다. 
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/past/big-eyes.jpg" alt="BIG EYES : Margaret Keane Retrospctive">
+                <div class="exhibition-info">
+                    <div class="title">
+                        <h3>BIG EYES</h3>
+                        <p>빅아이즈 (Big Eyes : Margaret Keane Retrospective)</p>
+                    </div>
+                    <p>
+                        '빅 아이즈' 시리즈로 사랑받은 미국의 여성화가 마가렛 킨(Margaret Keane , 1927-)의 회고전을 2014년 동명의 제목으로 개봉한 팀 버튼의 영화로 국내에 잘 알려진 ‘빅 아이즈’ 시리즈를 비롯하여, 모딜리아니를 연상케 하는 긴 얼굴의 여인상과 초현실적인 인물 등 유화를 중심으로 2020년 5월 13일부터 9월 27일까지 개최한다.
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/past/mucha.jpg" alt="Alphonse Mucha">
+                <div class="exhibition-info">
+                    <div class="title">
+                        <h3>Alphonse Mucha</h3>
+                        <p>알폰스 무하 Alphonse Mucha</p>
+                    </div>
+                    <p>
+                        개관특별전으로 알폰스 무하의 파리 아르누보 장식예술가로부터 체코의 국민화가로서 생의 마지막까지 총망라한 &#60;알폰스 무하&#62;전을 2019년 10월 24일부터 2020년 4월 5일까지 개최합니다. 
+                        알폰스 무하의 판화, 유화, 드로잉 등 오리지널 230여 점을 작가의 삶의 여정에 따른 작품 변화에 따라 총 5부로 나누어 소개합니다.
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/past/lights.jpg" alt="LOVE OF LIGHT">
+                <div class="exhibition-info">
+                    <div class="title">
+                        <h3>LOVE OF LIGHT</h3>
+                        <p>Love Of Light : 사랑의 그림자, 빛을 그리다</p>
+                    </div>
+                    <p>
+                        빛의 3원색인 RGB를 이용한 컬러 그림자로 아름답고 오묘한 작업을 만들어내는 네덜란드 작가 데니스 패런과 회화, 조각, 설치, 공예, 패션 등 다양한 분야의 국내작가 15인의 협업으로 사랑과 빛을 표현한 전시입니다.
+                        관람객들이 직접 그림자를 만들어 작품에 또다른 감성을 더하는 공감각적인 경험을 하게 되는 전시입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+            <div class="next-box">
+                <div class="swiper-button-next"></div>
+            </div>
+            <div class="prev-box">
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        </div>
+    </section>
+
+    <!-- notice & news -->
+    <section class="notice">
+        <div class="wrap">
+            <div class="notice-title">
+                <h2>Notice<br>&News</h2>
+            </div>
+            <!-- Swiper -->
+            <div class="swiper noticeSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <h4>
+                            MAMAU - 전시 준비 기관 미술관 및 아트샵 휴관 안내 (~ 4월 28일)...
+                        </h4>
+                        <p>2022.04.11</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <h4>
+                            [ 보도자료 ] 투어비스에서 20세기 최고의 화가를 만나다... '샤갈 특별전'프...
+                        </h4>
+                        <p>2022.04.06</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <h4>
+                            [ 보도자료 ] 전쟁 중에도 희망을 전하고 싶었던 화가, 샤갈...
+                        </h4>
+                        <p>2022.04.06</p>
+                    </div>
+                </div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram -->
+    <section class="insta scroll-spy">
+        <h2>Instagram</h2>
+        <div class="wrap back-to-position to-top delay-1">
+            <a href="#javascript:void(0)" class="article">
+                <img src="img/insta/article1.jpg" alt="article1">
+            </a>
+            <a href="#javascript:void(0)" class="article">
+                <img src="img/insta/article2.jpg" alt="article2">
+            </a>
+            <a href="#javascript:void(0)" class="article">
+                <img src="img/insta/article3.jpg" alt="article3">
+            </a>
+            <a href="#javascript:void(0)" class="article">
+                <img src="img/insta/article4.jpg" alt="article4">
+            </a>
+            <a href="#javascript:void(0)" class="article">
+                <img src="img/insta/article5.jpg" alt="article5">
+            </a>
+            <a href="#javascript:void(0)" class="article">
+                <img src="img/insta/article6.jpg" alt="article6">
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer - 하단메뉴, 하단로고, address, sns -->
+    <footer>
+        <div class="footer-menu">
+            <ul>
+                <li><a href="#javascript:void(0)">사이트맵</a></li>
+                <li><a href="#javascript:void(0)">개인정보처리방침</a></li>
+                <li><a href="#javascript:void(0)">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="wrap">
+            <div class="footer-info">
+                <h2>
+                    <a href="index.html">
+                        <img src="img/logo/M-logo.png" alt="My Art Museum">
+                    </a>
+                </h2>
+                <address>
+                    <h3>마이아트뮤지엄</h3>
+                    <div class="add">
+                        <p>서울특별시 강남구 테헤란로 518 섬유센터빌딩 B1 (대치동994-31)</p>
+                        <ul>
+                            <li>T. 02-567-8878 <span>F. 02-6488-9881</span></li>
+                            <li>Email. mamu@myartmuseum.kr</li>
+                            <li>사업자등록번호. 207-81-57651</li>
+                        </ul>
+                    </div>
+                    <p>COPYRIGHT (C) 2019 MY ART MUSEUM. ALL RIGHTS RESERVED.</p>
+                </address>
+            </div>
+            <div class="sns">
+                <ul>
+                    <li><a href="#javascript:void(0)"><img src="img/sns/insta.png" alt="인스타그램"></a></li>
+                    <li><a href="#javascript:void(0)"><img src="img/sns/kakao.png" alt="카카오톡"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOP버튼 & 티켓예약버튼 -->
+    <div id="to-top">
+        <span class="material-symbols-outlined topBtn">
+            arrow_upward
+        </span>
+    </div>
+    <div id="ticket">
+        <span class="material-symbols-outlined ticketBtn">
+            confirmation_number
+        </span>
+    </div>
+</body>
+</html>
